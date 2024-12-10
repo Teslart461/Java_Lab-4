@@ -9,5 +9,10 @@ public class Main {
         System.out.println("Введите данные пользователя:");
         user.input(scanner);
         System.out.println("Привет, " + user.getName() + "!");
+
+        // Создаем меню
+        Menu menu = new Menu();
+        System.out.println("Создание меню:");
+        menu.input(scanner);
     }
 }
