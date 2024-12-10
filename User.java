@@ -15,6 +15,6 @@ public class User {
 	Scanner in = new Scanner(System.in, "Cp866");
 
         System.out.print("Введите имя пользователя: ");
-        name = scanner.nextLine();
+        name = in.nextLine();
     }
 }
