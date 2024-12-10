@@ -27,7 +27,7 @@ public class Dish {
     public void input(Scanner scanner) {
 	Scanner in = new Scanner(System.in, "Cp866");
         System.out.print("Введите название блюда: ");
-        name = scanner.nextLine();
+        name = in.nextLine();
         System.out.print("Введите количество ингредиентов в блюде: ");
         int numIngredients = scanner.nextInt();
         scanner.nextLine(); // Очистка буфера
