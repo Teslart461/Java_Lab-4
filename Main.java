@@ -18,5 +18,18 @@ public class Main {
         // Вычисляем общее количество калорий в меню
         double totalCalories = menu.calculateCalories();
         System.out.println("Общее количество калорий в меню: " + totalCalories + " ккал");
+
+        // Ввод данных о физической активности
+        PhysicalActivity activity = new PhysicalActivity();
+        System.out.println("Введите данные о физической активности:");
+        activity.input(scanner);
+        double caloriesBurned = activity.getCaloriesBurned();
+        System.out.println("Сожжено калорий: " + caloriesBurned + " ккал");
+
+        // Вычисляем баланс калорий
+        double netCalories = totalCalories - caloriesBurned;
+        System.out.println("Итоговый баланс калорий: " + netCalories + " ккал");
+
+        scanner.close();
     }
 }
