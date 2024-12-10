@@ -23,8 +23,19 @@ public class Dish {
                 .mapToDouble(DetailedIngredient::calculateCalories)
                 .sum();
     }
-
-
+    
+    public void input(Scanner scanner) {
+	Scanner in = new Scanner(System.in, "Cp866");
+        System.out.print("Введите название блюда: ");
+        name = scanner.nextLine();
+        System.out.print("Введите количество ингредиентов в блюде: ");
+        int numIngredients = scanner.nextInt();
+        scanner.nextLine(); // Очистка буфера
+        for (int i = 0; i < numIngredients; i++) {
+            System.out.println("Ингредиент " + (i + 1) + ":");
+            DetailedIngredient ingredient = new DetailedIngredient();
+            ingredient.input(scanner);
+            addIngredient(ingredient);
         }
     }
 }
