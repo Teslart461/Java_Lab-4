@@ -23,7 +23,19 @@ public class Meal {
                 .mapToDouble(Dish::calculateCalories)
                 .sum();
     }
-
+    
+    public void input(Scanner scanner) {
+	Scanner in = new Scanner(System.in, "Cp866");
+        System.out.print("Введите название приема пищи: ");
+        name = in.nextLine();
+        System.out.print("Введите количество блюд на этом приеме пищи: ");
+        int numDishes = scanner.nextInt();
+        scanner.nextLine(); // Очистка буфера
+        for (int i = 0; i < numDishes; i++) {
+            System.out.println("Блюдо " + (i + 1) + ":");
+            Dish dish = new Dish();
+            dish.input(scanner);
+            addDish(dish);
 
         }
     }
