@@ -25,6 +25,9 @@ public class Main {
         double caloriesBurned = activity.getCaloriesBurned();
         System.out.println("Сожжено калорий: " + caloriesBurned + " ккал");
 
+        // Использование статического метода
+        System.out.println("Всего создано меню: " + Menu.getTotalMenusCreated());
+
         // Вычисляем баланс калорий
         double netCalories = totalCalories - caloriesBurned;
         System.out.println("Итоговый баланс калорий: " + netCalories + " ккал");
