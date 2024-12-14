@@ -1,11 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu {
+private static int totalMenusCreated = 0; // Статическое поле
     private ArrayList<Meal> meals;
 
     public Menu() {
         this.meals = new ArrayList<>();
+        totalMenusCreated++; // Увеличиваем счётчик при создании нового объекта
+    }
+
+    public static int getTotalMenusCreated() { // Статический метод
+        return totalMenusCreated;
     }
 
     public void addMeal(Meal meal) {
