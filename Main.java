@@ -6,8 +6,7 @@ public class Main {
 
         // Создаем пользователя
         User user = new User();
-        System.out.println("Введите данные пользователя:");
-        user.input(scanner);
+        user.input();
         System.out.println("Привет, " + user.getName() + "!");
 
         // Создаем меню
