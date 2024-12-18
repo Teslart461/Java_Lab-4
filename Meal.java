@@ -23,9 +23,9 @@ public class Meal {
                 .mapToDouble(Dish::calculateCalories)
                 .sum();
     }
-    
+
     public void input(Scanner scanner) {
-	Scanner in = new Scanner(System.in, "Cp866");
+        Scanner in = new Scanner(System.in, "Cp866");
         System.out.print("Введите название приема пищи: ");
         name = in.nextLine();
         System.out.print("Введите количество блюд на этом приеме пищи: ");
@@ -36,7 +36,17 @@ public class Meal {
             Dish dish = new Dish();
             dish.input(scanner);
             addDish(dish);
-
         }
+    }
+
+    // Поиск блюда по имени
+    public Dish findDishByName(String name) {
+        for (Dish dish : dishes) {
+            System.out.println("Проверяем блюдо: " + dish.getName()); // Отладочный вывод
+            if (dish.getName().trim().equalsIgnoreCase(name.trim())) {
+                return dish;
+            }
+        }
+        return null; // Если блюдо не найдено
     }
 }
