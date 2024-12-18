@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
-private static int totalMenusCreated = 0; // Статическое поле
+public class Menu {
+    private static int totalMenusCreated = 0; // Статическое поле
     private ArrayList<Meal> meals;
 
     public Menu() {
@@ -33,5 +36,21 @@ private static int totalMenusCreated = 0; // Статическое поле
             meal.input(scanner);
             addMeal(meal);
         }
+    }
+
+    // Сортировка приемов пищи по калорийности
+    public void sortMealsByCalories() {
+        meals.sort(Comparator.comparingDouble(Meal::calculateCalories));
+    }
+
+    // Поиск блюда по имени
+    public Dish findDishByName(String name) {
+        for (Meal meal : meals) {
+            Dish dish = meal.findDishByName(name);
+            if (dish != null) {
+                return dish;
+            }
+        }
+        return null; // Если блюдо не найдено
     }
 }
