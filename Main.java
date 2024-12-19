@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "Cp866");
 
         // Создаем пользователя
         User user = new User();
@@ -27,6 +27,21 @@ public class Main {
 
         // Использование статического метода
         System.out.println("Всего создано меню: " + Menu.getTotalMenusCreated());
+
+        // Сортировка блюд в меню
+        menu.sortMealsByCalories();
+        System.out.println("Меню после сортировки приёмов пищи по калорийности:");
+        menu.printMeals();
+
+        // Поиск блюда по имени
+        System.out.print("Введите имя блюда для поиска: ");
+        String dishName = scanner.nextLine();
+        Dish foundDish = menu.findDishByName(dishName);
+        if (foundDish != null) {
+            System.out.println("Найдено блюдо: " + foundDish.getName() + " с калорийностью " + foundDish.calculateCalories() + " ккал");
+        } else {
+            System.out.println("Блюдо не найдено.");
+        }
 
         // Вычисляем баланс калорий
         double netCalories = totalCalories - caloriesBurned;
