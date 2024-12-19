@@ -43,6 +43,13 @@ public class Menu {
         meals.sort(Comparator.comparingDouble(Meal::calculateCalories));
     }
 
+    // Вывод приемов пищи в меню
+    public void printMeals() {
+        for (Meal meal : meals) {
+            System.out.println("Прием пищи: " + meal.getName() + ", калорийность: " + meal.calculateCalories() + " ккал");
+        }
+    }
+
     // Поиск блюда по имени
     public Dish findDishByName(String name) {
         for (Meal meal : meals) {
